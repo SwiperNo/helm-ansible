@@ -12,9 +12,11 @@
         cmd: git pull 
       argss:
         chdir: "{{ awx_helm_dir }}"
+      become_user: rex
 
     - name: Apply helm upgrade
       ansible.builtin.shell:
         cmd: helm upgrade -n awx ./helm-awx
       args:
         chdir: "{{ awx_helm_dir }}"
+      become_user: rex
